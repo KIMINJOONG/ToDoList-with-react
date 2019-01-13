@@ -22,3 +22,17 @@
 <ul>
     <li>데이터 배열을 컴포넌트 배열로 변환하여 렌더링 하는역할만 함</li>
 </ul>
+
+
+<h2>상태관리</h2>
+<span>좋지않은예</span><br/>
+<p>데이터 배열의 상태를 TodoList 컴포넌트에서 정의하고, TodoInput의 상태를 그 내부에 정의했다고 가정. 이경우 새 데이터를 TodoList에 넣으려면?</p>
+<ul>
+    <li>TodoList 컴포넌트에 데이터 생성 메서드 만들기</li>
+    <li>App에서 TodoList에 ref달기</li>
+    <li>TodoInput에 ref가 달린 TodoList의 데이터 생성 메서드를 props로 전달하기</li>
+    <li>TodoInput의 상태를 전달받은 함수에 파라미터로 넣기</li>
+</ul>
+
+<span>좋은예</span><br/>
+<p>데이터가 필요한 컴포넌트들의 상위 컴포넌트인 App에서 하는것이 좋다. App의 state에서 input 값과 데이터 배열을 정의하고, 이를 변화시키는 메서드들도 정의<br/>state값과 메서드를 props로 하위 컴포넌트에 전달해서 사용하는 것이 바람직한 흐름</p>
